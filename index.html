@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    
+    <LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+    
+    <script type="text/javascript" src="js/nameOfJSFileHere.js"></script>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+
+</head>
+<body onload="startTime()" >
+<script>
+function startTime() {
+   var today=new Date();
+   var h=today.getHours();
+   var m=today.getMinutes();
+   var s=today.getSeconds();
+   m = checkTime(m);
+   s = checkTime(s);
+   document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+   var t = setTimeout(function(){startTime()},500);
+}function checkTime(i) {
+   if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+   return i;
+}
+// this is the code that makes the cock show up in id txt
+
+
+$(document).ready(function(){
+var array = ["red", "blue", "yellow"];
+var counter = 0;
+var nextColor;function  bgchange() {
+   console.log (counter);
+   counter = (counter + 1) % array.length;
+   nextColor = array[counter];    $("html").css("background-color", nextColor);}
+   setInterval(bgchange, 1000)
+});
+
+$(document).ready(function(){
+var array = ["white", "black", "#66FFFF"];
+var counter = 0;
+var nextColor;function  bgchange() {
+   console.log (counter);
+   counter = (counter + 1) % array.length;
+   nextColor = array[counter];    $("#txt").css("color", nextColor);}
+   setInterval(bgchange, 1000)
+});
+
+$(document).ready(function(){
+var array = ["grey", "pink", "#CCCC33"];
+var counter = 0;
+var nextColor;function  bgchange() {
+   console.log (counter);
+   counter = (counter + 1) % array.length;
+   nextColor = array[counter];    $("#txt").css("background-color", nextColor);}
+   setInterval(bgchange, 1000)
+});
+
+
+</script>
+
+<div id="txt">   </div>
+
+</body> 
+</html>
